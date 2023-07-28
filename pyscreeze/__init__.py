@@ -612,7 +612,7 @@ def _screenshot_linux(imageFilename=None, region=None):
     elif RUNNING_X11 and SCROT_EXISTS:  # scrot only runs on X11, not on Wayland.
         # Even if gnome-screenshot exists, use scrot on X11 because gnome-screenshot
         # has this annoying screen flash effect that you can't disable, but scrot does not.
-        subprocess.call(['scrot', '-z', tmpFilename])
+        subprocess.call(['scrot', '-z', tmpFilename, "--pointer"])
     elif GNOMESCREENSHOT_EXISTS:  # gnome-screenshot runs on Wayland and X11.
         subprocess.call(['gnome-screenshot', '-f', tmpFilename])
     elif RUNNING_WAYLAND and SCROT_EXISTS and not GNOMESCREENSHOT_EXISTS:
